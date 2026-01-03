@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #6a3093, #a044ff, #ffffff);
+    color: #ffffff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.photo-note {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    font-style: italic;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+.insta-note {
+    margin-top: 12px;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    font-style: italic;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+
+/* PLAY OVERLAY */
+#playOverlay {
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.85);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 9999;
+    text-align: center;
+}
+
+.photo-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.memory-photo {
+    max-width: 90%;
+    max-height: 300px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s, opacity 1s ease;
+    opacity: 0; /* initially hidden for animation */
+}
+
+/* fade in when section shows */
+.scene.show .memory-photo {
+    opacity: 1;
+}
+
+.memory-photo:hover {
+    transform: scale(1.05);
+}
+
+
+/* SCENE BASE */
+.scene {
+    min-height: 100vh;
+    padding: clamp(30px, 6vw, 60px) clamp(20px, 6vw, 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    background: linear-gradient(135deg, rgba(106,48,147,0.85), rgba(160,68,255,0.85), rgba(255,255,255,0.85));
+    border-radius: 12px;
+    margin: 20px 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    opacity: 0;
+    transform: translateY(60px) scale(0.96);
+    transition: all 1s ease;
+}
+
+.scene.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* TEXT */
+h1, h2, p, span, .response-msg {
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+h1 { font-size: clamp(28px, 6vw, 42px); margin-bottom: 20px; }
+h2 { font-size: clamp(22px, 5.5vw, 32px); margin-bottom: 18px; }
+
+p {
+    font-size: clamp(15px, 4.5vw, 20px);
+    line-height: 1.8;
+    white-space: pre-wrap;
+}
+
+/* FINAL SCREEN SPECIAL */
+.final {
+    background: linear-gradient(135deg, rgba(160,68,255,0.85), rgba(200,140,255,0.85), rgba(255,255,255,0.85));
+}
+
+/* SPAN HEART */
+span { margin-top: 20px; font-size: 18px; }
+
+/* MOBILE POLISH */
+@media (max-width: 480px) {
+    p { line-height: 1.9; }
+    .scene { margin: 10px 15px; padding: 25px 15px; }
+}
